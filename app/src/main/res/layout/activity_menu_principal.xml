@@ -83,6 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#D32F2F"
+        android:onClick="login"
         android:text="@string/btnIniciarSesion"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +97,8 @@
         android:id="@+id/txtRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:linksClickable="true"
+        android:onClick="direccionarRegistro"
         android:text="@string/linkRegistrarse"
         android:textAlignment="center"
         android:textColor="#03A9F4"
@@ -105,7 +108,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="0.239"
-        android:linksClickable="true"/>
+        app:layout_constraintVertical_bias="0.239" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

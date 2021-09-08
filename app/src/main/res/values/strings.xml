@@ -7,4 +7,26 @@
     <string name="txtPass">Contraseña</string>
     <string name="btnIniciarSesion">INICIAR SESIÓN</string>
     <string name="linkRegistrarse">Registrarse</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="contrasenia2">Repetir contraseña</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="parqueos">Parqueos</string>
+    <string name="cuenta">Mi cuenta</string>
+    <string name="tituloUsuario">Usuario</string>
+    <string name="subtituloCorreo">tamara@docente.com</string>
+
+
+    <!--ACA SON LOS STRING QUE AGREGO AUTOMATICAMENTE EL DRAWER, F-->
+    <string name="title_activity_navigation">navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Parking Control</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
 </resources>

@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TP3ControlesYAlmacenamientoSqlLite">
         <activity
+            android:name=".navigation"
+            android:exported="true"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/Theme.TP3ControlesYAlmacenamientoSqlLite.NoActionBar" />
+        <activity
+            android:name=".RegistrarseActivity"
+            android:exported="true" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="true" />
         <activity
