@@ -23,12 +23,11 @@ public class RegistrarseActivity extends AppCompatActivity {
 
         et_nombre = (EditText) findViewById(R.id.txtNombre);
         et_correo = (EditText) findViewById(R.id.txtCorreo);
-        et_pass = (EditText) findViewById(R.id.txtPassword);
+        et_pass = (EditText) findViewById(R.id.txtContrasenia);
         et_confimpass = (EditText) findViewById(R.id.txtRepetirContra);
 
     }
 
-    //Método que registra nuevo Usuario
     public void Registrar(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"ParkingControl",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
@@ -41,7 +40,7 @@ public class RegistrarseActivity extends AppCompatActivity {
         int existe = 0;
 
         if(!nombre.isEmpty() && !correo.isEmpty() && !pass.isEmpty() && !repecontra.isEmpty()){
-            if(pass == repecontra){
+            if(pass.compareTo(repecontra) == 0){
                 existe = buscarRegistro(correo);
                 if(existe == 0){
                     ContentValues registro = new ContentValues();
@@ -51,11 +50,9 @@ public class RegistrarseActivity extends AppCompatActivity {
 
                     try {
                         BaseDeDatos.insert("usuarios",null,registro);
-
                         BaseDeDatos.close();
 
-                        Toast.makeText(this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(this, "Usuario Registrado Correctamente", Toast.LENGTH_LONG).show();
                         Intent intent =  new Intent(this, MenuPrincipal.class);
                         startActivity(intent);
                     }
@@ -79,17 +76,14 @@ public class RegistrarseActivity extends AppCompatActivity {
         BaseDeDatos.close();
     }
 
-    //Método que verifica si el Usuario existe
     public int buscarRegistro(String correo){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"ParkingControl",null,1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-
         int existe = 0;
 
-        //Consulto si el correo existe
         Cursor fila = BaseDeDatos.rawQuery
-                ("select * from usuarios where correo = " + correo, null);
-        if(fila.moveToFirst()) existe++;
+                ("select * from usuarios where correo ='" + correo + "'", null);
+        if(fila.moveToFirst()) existe ++;
 
         BaseDeDatos.close();
         return existe;

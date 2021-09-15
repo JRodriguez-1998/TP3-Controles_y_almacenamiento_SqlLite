@@ -12,7 +12,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
         String query = "create table usuarios(_ID integer primary key autoincrement, nombre text, correo text, pass text)";
-
         BaseDeDatos.execSQL(query);
     }
 

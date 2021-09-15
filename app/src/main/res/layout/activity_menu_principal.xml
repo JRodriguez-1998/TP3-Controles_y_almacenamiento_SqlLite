@@ -49,12 +49,13 @@
         app:srcCompat="@drawable/homeromovil" />
 
     <EditText
-        android:id="@+id/txtUsuario"
+        android:id="@+id/txtCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/txtUser"
-        android:inputType="textPersonName"
+        android:hint="@string/correo"
+        android:inputType="textEmailSubject"
+        android:minHeight="48dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,12 +71,13 @@
         android:ems="10"
         android:hint="@string/txtPass"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreo"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -98,6 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:linksClickable="true"
+        android:minHeight="48dp"
         android:onClick="direccionarRegistro"
         android:text="@string/linkRegistrarse"
         android:textAlignment="center"
