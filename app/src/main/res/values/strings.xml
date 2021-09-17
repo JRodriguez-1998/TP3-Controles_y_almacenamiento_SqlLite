@@ -16,6 +16,10 @@
     <string name="cuenta">Mi cuenta</string>
     <string name="tituloUsuario">Usuario</string>
     <string name="subtituloCorreo">tamara@docente.com</string>
+    <string name="registro">Registro parqueos</string>
+    <string name="nroMatricula">Nro. Matricula</string>
+    <string name="tiempo">Tiempo</string>
+
 
 
     <!--ACA SON LOS STRING QUE AGREGO AUTOMATICAMENTE EL DRAWER, F-->
@@ -30,5 +34,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="tvcerrarSesion">Cerrar Sesión</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
