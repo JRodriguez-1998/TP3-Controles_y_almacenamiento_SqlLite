@@ -1,8 +1,11 @@
 package com.example.tp3_controlesyalmacenamientosqllite;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +23,8 @@ public class navigation extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationBinding binding;
+    private TextView usuario;
+    private TextView mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,25 @@ public class navigation extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
+
+        View headerView = mNavigationView.getHeaderView(0);
+        TextView userName = headerView.findViewById(R.id.txtUsuarioNav);
+        TextView userEmail = headerView.findViewById(R.id.txtMailNav);
+        String mail = getIntent().getStringExtra("datomail");
+        userEmail.setText(mail);
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"ParkingControl",null,1);
+        SQLiteDatabase BaseDeDatos = admin.getReadableDatabase();
+        Cursor fila = BaseDeDatos.rawQuery("select nombre from usuarios where correo ='" + mail+"'", null);
+        if(fila.moveToFirst()){
+        userName.setText(fila.getString(0));
+        BaseDeDatos.close();
+        }
+
+
+
+
     }
 
     @Override
@@ -55,4 +79,8 @@ public class navigation extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+
+
 }

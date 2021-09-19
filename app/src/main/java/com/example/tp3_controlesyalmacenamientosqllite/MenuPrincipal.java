@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -43,6 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     bd.close();
                     Toast.makeText(this,"Bienvenido/a", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this, navigation.class);
+                    i.putExtra("datomail", et_correo.getText().toString());
                     startActivity(i);
                 }
                 else{
