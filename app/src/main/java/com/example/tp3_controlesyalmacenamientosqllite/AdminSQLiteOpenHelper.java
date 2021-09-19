@@ -11,12 +11,17 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
-        String query = "create table usuarios(_ID integer primary key autoincrement, nombre text, correo text, pass text)";
-        BaseDeDatos.execSQL(query);
+        String queryUsuarios = "create table usuarios(_ID integer primary key autoincrement, nombre text, correo text, pass text)";
+        String queryParqueos = "create table parqueos(idParqueo integer primary key autoincrement, matricula text, minutos int, idUsuario int)";
+
+        BaseDeDatos.execSQL(queryUsuarios);
+        BaseDeDatos.execSQL(queryParqueos);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("drop table if exists parqueos");
+        sqLiteDatabase.execSQL("drop table if exists usuarios");
+        onCreate(sqLiteDatabase);
     }
 }

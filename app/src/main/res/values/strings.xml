@@ -19,7 +19,8 @@
     <string name="registro">Registro parqueos</string>
     <string name="nroMatricula">Nro. Matricula</string>
     <string name="tiempo">Tiempo</string>
-
+    <string name="cancelar">Cancelar</string>
+    <string name="registrar">Registrar</string>
 
 
     <!--ACA SON LOS STRING QUE AGREGO AUTOMATICAMENTE EL DRAWER, F-->

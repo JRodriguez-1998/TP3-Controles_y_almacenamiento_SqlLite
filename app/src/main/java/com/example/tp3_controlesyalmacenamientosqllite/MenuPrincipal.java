@@ -38,13 +38,14 @@ public class MenuPrincipal extends AppCompatActivity {
 
             if(!email.isEmpty() && !pass.isEmpty()){
             Cursor fila = bd.rawQuery
-                    ("select * from usuarios where correo ='" + email + "'" + " and pass ='" + pass + "'",
+                    ("select _ID from usuarios where correo ='" + email + "'" + " and pass ='" + pass + "'",
                             null);
             if(fila.moveToFirst()){
                     bd.close();
                     Toast.makeText(this,"Bienvenido/a", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this, navigation.class);
                     i.putExtra("datomail", et_correo.getText().toString());
+                    i.putExtra("idUsuario", fila.getInt(0));
                     startActivity(i);
                 }
                 else{

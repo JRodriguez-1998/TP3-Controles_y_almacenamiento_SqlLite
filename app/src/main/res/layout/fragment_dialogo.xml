@@ -9,8 +9,9 @@
 
 
     <LinearLayout
-        android:layout_width="246dp"
-        android:layout_height="202dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="248dp"
+        android:layout_height="176dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,5 +59,31 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/cancelar"
+        android:textColor="#03A9F4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/btnRegistrar"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/registrar"
+        android:textColor="#03A9F4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelar"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
