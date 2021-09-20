@@ -51,9 +51,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/tiempo"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:minHeight="48dp"
             android:textSize="20sp"
+            android:digits="0123456789"
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="178dp" />
 

@@ -45,9 +45,20 @@ public class dialogo extends DialogFragment {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (txtMatricula.getText().toString().isEmpty()
+                    || txtTiempo.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "Debe completar todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String matricula = txtMatricula.getText().toString();
                 Integer minutos = Integer.parseInt(txtTiempo.getText().toString());
                 Integer idUsuario = getActivity().getIntent().getIntExtra("idUsuario", 0);
+
+                if (minutos <= 0) {
+                    Toast.makeText(getActivity(), "El tiempo debe ser positivo", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Parqueo parqueo = new Parqueo(matricula, minutos, idUsuario);
                 registrarParqueo(parqueo);
