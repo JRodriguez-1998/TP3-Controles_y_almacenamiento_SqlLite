@@ -64,11 +64,8 @@ public class Parqueo implements Serializable {
 
     @Override
     public String toString() {
-        return "Parqueo{" +
-                "idParqueo=" + idParqueo +
-                ", matricula='" + matricula + '\'' +
-                ", minutos=" + minutos +
-                ", idUsuario=" + idUsuario +
-                '}';
+        return matricula + "\n" + minutos;
     }
+
+
 }

@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,34 +41,40 @@ public class RegistrarseActivity extends AppCompatActivity {
         int existe = 0;
 
         if(!nombre.isEmpty() && !correo.isEmpty() && !pass.isEmpty() && !repecontra.isEmpty()){
-            if(pass.compareTo(repecontra) == 0){
-                existe = buscarRegistro(correo);
-                if(existe == 0){
-                    ContentValues registro = new ContentValues();
-                    registro.put("nombre", nombre);
-                    registro.put("correo", correo);
-                    registro.put("pass", pass);
 
-                    try {
-                        BaseDeDatos.insert("usuarios",null,registro);
-                        BaseDeDatos.close();
+            if(Patterns.EMAIL_ADDRESS.matcher(et_correo.getText().toString()).matches()){
+                if(pass.compareTo(repecontra) == 0){
+                    existe = buscarRegistro(correo);
+                    if(existe == 0){
+                        ContentValues registro = new ContentValues();
+                        registro.put("nombre", nombre);
+                        registro.put("correo", correo);
+                        registro.put("pass", pass);
 
-                        Toast.makeText(this, "Usuario Registrado Correctamente", Toast.LENGTH_LONG).show();
-                        Intent intent =  new Intent(this, MenuPrincipal.class);
-                        startActivity(intent);
+                        try {
+                            BaseDeDatos.insert("usuarios",null,registro);
+                            BaseDeDatos.close();
+
+                            Toast.makeText(this, "Usuario Registrado Correctamente", Toast.LENGTH_LONG).show();
+                            Intent intent =  new Intent(this, MenuPrincipal.class);
+                            startActivity(intent);
+                        }
+                        catch (SQLException exception){
+                            Toast.makeText(this, "Error al Registrar Usuario", Toast.LENGTH_SHORT).show();
+                            BaseDeDatos.close();
+                        }
                     }
-                    catch (SQLException exception){
-                        Toast.makeText(this, "Error al Registrar Usuario", Toast.LENGTH_SHORT).show();
-                        BaseDeDatos.close();
+                    else{
+                        Toast.makeText(this, "El Usuario ya existe", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(this, "El Usuario ya existe", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    et_confimpass.setText("");
                 }
             }
             else{
-                Toast.makeText(this, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-                et_confimpass.setText("");
+                Toast.makeText(this,"Email no es valido",Toast.LENGTH_SHORT).show();
             }
         }
         else{
